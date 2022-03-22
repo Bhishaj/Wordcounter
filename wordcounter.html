@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        textarea{
+            font-size: 1rem;
+        }
+        label{
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="head mt-5 p-3 bg-warning">
+            <h1 class="text-center text-white">Word and Character counter</h1>
+        </div>
+        <div class="row  p-5">
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label ">Write Some text</label>
+                <textarea class="form-control" id="textbox" rows="3"></textarea>
+              </div>
+              <div class="col-12 text-center">
+                  <p class="fs-2 text-warning"><span id="word"></span> words and <span id="character"></span> character.</p>
+              </div>
+        </div>
+    </div>
+    <script>
+        let textbox=document.getElementById('textbox');
+        textbox.addEventListener('input',function(){
+            var text=this.value;
+            let char=text.length;
+            document.getElementById('character').innerHTML=char;
+            text=text.trim();
+            let words=text.split(" ");
+            let new_words=words.filter(function(element){
+                return element!="";
+            })
+            console.log(new_words);
+            document.getElementById('word').innerHTML=new_words.length;
+            
+        })
+        
+    </script>
+</body>
+</html>
